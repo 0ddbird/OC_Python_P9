@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+  <h1>Your Feed</h1>
+  <a href="{% url 'create_ticket' %}">Ask for a review</a>
+  <a href="{% url 'create_ticket_and_review' %}">Create a review</a>
+
+  <h2>Tickets</h2>
+  {% for ticket in tickets %}
+    <div>
+      <h3>{{ ticket.title }}</h3>
+      <p>{{ ticket.description }}</p>
+      <a href="{% url 'create_review' ticket.id %}">Create Review for this Ticket</a>
+        <img src={{ ticket.image.url }} alt={{ ticket.image.url }} />
+    </div>
+  {% endfor %}
+
+
+  <h2>Reviews</h2>
+  {% for review in reviews %}
+    <div>
+      <h3>{{ review.headline }}</h3>
+      <p>{{ review.body }}</p>
+      <p>Rating: {{ review.rating }}</p>
+    </div>
+  {% endfor %}
+
+  <h2>Reviews for my tickets</h2>
+  {% for review in reviews_for_my_tickets %}
+    <div>
+      <h3>{{ review.headline }}</h3>
+      <p>{{ review.body }}</p>
+      <p>Rating: {{ review.rating }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}

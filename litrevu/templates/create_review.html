@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% block content %}
+    <h2>Reviewing Ticket:</h2>
+    <h3>You are posting a review for: {{ ticket.title }}</h3>
+    <p>{{ ticket.description }}</p>
+    
+    {% if ticket.image %}
+        <img src="{{ ticket.image.url }}" alt="{{ ticket.title }}" />
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h3>Create a Review for {{ ticket.title }}</h3>
+        {{ form.as_p }}
+        <button type="submit">Submit Review</button>
+    </form>
+{% endblock %}
