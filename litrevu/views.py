@@ -1,11 +1,10 @@
-from django.shortcuts import render
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, get_user_model
+from django.contrib.auth import get_user_model, login
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from litrevu.forms import FollowUserForm, RegistrationForm, ReviewForm, TicketForm
+from django.shortcuts import get_object_or_404, redirect, render
 
-from litrevu.models import Ticket, Review, UserFollows
+from litrevu.forms import (FollowUserForm, RegistrationForm, ReviewForm,
+                           TicketForm)
+from litrevu.models import Review, Ticket, UserFollows
 
 
 def home(request):

@@ -1,7 +1,7 @@
-from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 
 
 class Ticket(models.Model):
@@ -25,7 +25,9 @@ class Review(models.Model):
 
 class UserFollows(models.Model):
     user = models.ForeignKey(
-        to=User, on_delete=models.CASCADE, related_name="following",
+        to=User,
+        on_delete=models.CASCADE,
+        related_name="following",
     )
     followed_user = models.ForeignKey(
         to=User,
@@ -44,7 +46,9 @@ class UserFollows(models.Model):
 
 class UserBlocked(models.Model):
     user = models.ForeignKey(
-        to=User, on_delete=models.CASCADE, related_name="blocking",
+        to=User,
+        on_delete=models.CASCADE,
+        related_name="blocking",
     )
     blocked_user = models.ForeignKey(
         to=User,

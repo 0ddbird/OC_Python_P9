@@ -1,12 +1,68 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-    <form method="post" enctype="multipart/form-data">
+<style>
+    .rating {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .star {
+        cursor: pointer;
+        font-size: 2rem;
+        color: lightgray;
+    }
+
+    input[type="radio"]:checked ~ .star {
+        color: orange;
+    }
+</style>
+<div class="max-w-2xl mx-auto bg-white rounded-lg border border-gray-200 shadow-md overflow-hidden my-4 p-5">
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
         {% csrf_token %}
-        <h3>Ticket</h3>
-        {{ ticket_form.as_p }}
-        <h3>Review</h3>
-        {{ review_form.as_p }}
-        <button type="submit">Créer le ticket et la review</button>
+        <h3 class="text-lg font-medium text-gray-700">Ticket</h3>
+        <div>
+            <label for="id_title" class="block text-sm font-medium text-gray-700">Title</label>
+            <input type="text" name="title" id="id_title"
+                   class="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div>
+            <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea name="description" id="id_description"
+                      class="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+        </div>
+        <div>
+            <label for="id_image" class="block text-sm font-medium text-gray-700">Image</label>
+            <input type="file" name="image" id="id_image"
+                   class="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+
+        <h3 class="text-lg font-medium text-gray-700 mt-6">Review</h3>
+        <div>
+            <label for="id_rating" class="block text-sm font-medium text-gray-700">Rating</label>
+            <div class="rating">
+                {% for value in "54321" %}
+                <input type="radio" id="star{{ value }}" name="rating" value="{{ value }}" class="hidden"/>
+                <label for="star{{ value }}" class="star">&#9733;</label>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <label for="id_headline" class="block text-sm font-medium text-gray-700">Headline</label>
+            <input type="text" name="headline" id="id_headline"
+                   class="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div>
+            <label for="id_body" class="block text-sm font-medium text-gray-700">Body</label>
+            <textarea name="body" id="id_body"
+                      class="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+        </div>
+
+        <button type="submit"
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+            Créer le ticket et la review
+        </button>
     </form>
-{% endblock %}0
+</div>
+{% endblock %}

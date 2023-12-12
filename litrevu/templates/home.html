@@ -7,8 +7,7 @@
     <h1>Welcome, {{ user.username }}!</h1>
     <a href="{% url 'feed' %}">Your feed</a>
 {% else %}
-    <h1>Welcome to LitRevu!</h1>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
+<h1>LitRevu</h1>
+
 {% endif %}
 {% endblock %}

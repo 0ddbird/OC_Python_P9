@@ -1,4 +1,6 @@
+.env
+.idea/
+.project/
 *.sqlite3
 __pycache__/
-.idea/
-media/
+media/*
