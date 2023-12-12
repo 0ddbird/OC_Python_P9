@@ -30,3 +30,4 @@ sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'DJANGO', 'FIRSTPARTY', 'LOCALFOLD
 known_django = ['django']
 skip_glob = ["migrations/*"]
 from_first = false
+multi_line_output=3

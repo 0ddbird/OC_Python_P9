@@ -2,8 +2,12 @@ from django.contrib.auth import get_user_model, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
-from litrevu.forms import (FollowUserForm, RegistrationForm, ReviewForm,
-                           TicketForm)
+from litrevu.forms import (
+    FollowUserForm,
+    RegistrationForm,
+    ReviewForm,
+    TicketForm
+)
 from litrevu.models import Review, Ticket, UserFollows
 
 
