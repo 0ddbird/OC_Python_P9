@@ -1,0 +1,29 @@
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        {% if 'error' in message.tags %}
+        <div class="bg-red-500 text-white p-4 shadow-md">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        {% if 'warning' in message.tags %}
+        <div class="bg-yellow-500 text-white p-4 shadow-md">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        {% if 'success' in message.tags %}
+        <div class="bg-emerald-500 text-white p-4 shadow-md">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        {% if 'error' not in message.tags and 'warning' not in message.tags and 'success' not in message.tags %}
+        <div class="bg-blue-500 text-white p-4 shadow-md">
+            {{ message }}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

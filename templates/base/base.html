@@ -11,30 +11,9 @@
     {% tailwind_css %}
 </head>
 <body class="font-roboto bg-gray-100">
-<nav class="bg-emerald-500 p-4 shadow-md">
-    <ul class="flex justify-between items-center">
-            {% if user.is_authenticated %}
-        <li><a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'feed' %}">Feed</a></li>
-        <li><a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'create_ticket' %}">Create Ticket</a>
-        </li>
-        <li><a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'subscriptions' %}">Manage
-            Subscriptions</a></li>
-                <li>
-                    <form action="{% url 'logout' %}" class="inline" method="post">
-                        {% csrf_token %}
-                        <button class="text-amber-50 hover:text-amber-200 font-bold bg-transparent border-none"
-                                type="submit">Logout
-                        </button>
-                    </form>
-                </li>
-            {% else %}
-        <li><a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'login' %}">Login</a></li>
-        <li><a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'register' %}">Register</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-
-<div class="container mx-auto mt-8 p-4">
+    {% include '../components/nav.html' %}
+    {% include '../components/messages_banner.html' %}
+    <div class="container mx-auto mt-8 p-4">
         {% block content %}
         {% endblock %}
     </div>

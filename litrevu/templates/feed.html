@@ -1,31 +1,16 @@
 {% extends 'base/base.html' %}
-
 {% block content %}
-<h1 class="font-black text-5xl text-center m-6">Your Feed</h1>
-<div class="flex justify-center">
-  <a href="{% url 'create_ticket' %}" class="m-0.5 bg-emerald-500 text-amber-50 rounded-lg p-2">Ask for a review</a>
-  <a href="{% url 'create_ticket_and_review' %}" class="m-0.5 bg-emerald-500 text-amber-50 rounded-lg p-2">Create a
-    review</a>
-</div>
-
-
-<h2 class="text-2xl font-bold my-4 text-center">Tickets</h2>
-<div class="space-y-4">
-  {% for ticket in tickets %}
+{% for post in posts %}
   <div class="my-4">
-    {% include 'ticket.html' %}
-    </div>
-  {% endfor %}
-</div>
-
-
-  <h2>Reviews</h2>
-  {% for review in reviews %}
-{% include 'review.html' %}
-  {% endfor %}
-
-  <h2>Reviews for my tickets</h2>
-  {% for review in reviews_for_my_tickets %}
-{% include 'review.html' %}
-  {% endfor %}
+    {% if post.content_type == 'TICKET' %}
+      {% with ticket=post %}
+        {% include './components/ticket.html' %}
+      {% endwith %}
+    {% elif post.content_type == 'REVIEW' %}
+      {% with review=post %}
+        {% include './components/review.html' %}
+      {% endwith %}
+    {% endif %}
+  </div>
+{% endfor %}
 {% endblock %}

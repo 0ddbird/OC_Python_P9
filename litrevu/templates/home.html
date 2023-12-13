@@ -5,7 +5,7 @@
 
 {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}!</h1>
-    <a href="{% url 'feed' %}">Your feed</a>
+    <a href="{% url 'feed' %}">Go to Your feed</a>
 {% else %}
 <h1>LitRevu</h1>
 

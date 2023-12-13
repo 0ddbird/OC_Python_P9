@@ -4,3 +4,4 @@ Pillow == 10.1.*
 django-browser-reload == 1.12.*
 django-extensions == 3.2.*
 django-tailwind == 3.6.*
+django-debug-toolbar==4.2.*

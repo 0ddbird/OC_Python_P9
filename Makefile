@@ -5,3 +5,6 @@ run:
 
 tw:
 		python manage.py tailwind start
+
+sp:
+		python manage.py shell_plus

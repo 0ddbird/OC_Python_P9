@@ -1,0 +1,27 @@
+<nav class="bg-sky-800 p-4 shadow-md">
+    <div class="flex justify-between items-center">
+        <div>
+            {% if user.is_authenticated %}
+                <a class="text-amber-50 hover:text-amber-200 font-bold mr-4" href="{% url 'feed' %}">LITRevu</a>
+                <a class="text-amber-50 hover:text-amber-200 font-bold mr-4" href="{% url 'create_ticket' %}">Ticket</a>
+                <a class="text-amber-50 hover:text-amber-200 font-bold mr-4" href="{% url 'create_ticket_and_review' %}">Review</a>
+                <a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'subscriptions' %}">Social</a>
+            {% else %}
+                <span class="text-amber-50 font-bold mr-4">LITRevu</span>
+            {% endif %}
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" class="inline" method="post">
+                    {% csrf_token %}
+                    <span class="text-amber-50 hover:text-amber-200 font-bold mr-4">Hello, <span class="italic">{{ user.username }}!</span></span>
+                    <button class="text-amber-50 hover:text-amber-200 font-bold bg-transparent border-none" type="submit">Logout</button>
+                </form>
+            {% else %}
+                <a class="text-amber-50 hover:text-amber-200 font-bold mr-4" href="{% url 'login' %}">Login</a>
+                <a class="text-amber-50 hover:text-amber-200 font-bold" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+
+</nav>
