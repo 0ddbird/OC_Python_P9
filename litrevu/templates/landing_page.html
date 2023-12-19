@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    <a href="{% url 'feed' %}">Go to Your feed</a>
+{% else %}
+
+<div class="flex justify-between items-stretch mx-auto">
+
+    <div class="flex-1 p-8">
+        <h2 class="text-lg font-semibold text-gray-800">Register now</h2>
+        <a href="{% url 'register' %}"
+           class="mt-3 inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-sky-600 rounded-lg hover:bg-sky-700 focus:ring-4 focus:ring-sky-300">
+            Register
+        </a>
+    </div>
+
+
+    <div class="flex-1 p-8">
+        <h2 class="text-lg font-semibold text-gray-800">Connect</h2>
+        <form method="post" action="{% url 'login' %}" class="mt-4 space-y-4">
+            {% csrf_token %}
+            <div>
+                <label for="id_username_login" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" name="username" id="id_username_login"
+                       class="mt-1 focus:ring-sky-500 focus:border-sky-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            </div>
+            <div>
+                <label for="id_password_login" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" id="id_password_login"
+                       class="mt-1 focus:ring-sky-500 focus:border-sky-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            </div>
+            <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                Login
+            </button>
+        </form>
+    </div>
+
+</div>
+
+
+{% endif %}
+{% endblock %}

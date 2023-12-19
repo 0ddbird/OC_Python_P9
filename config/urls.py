@@ -20,11 +20,17 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
+import users.views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", auth_views.LoginView.as_view(), name="login"),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("register/", users.views.register, name="register"),
     path("", include("litrevu.urls")),
+    path("", include("reviews.urls")),
+    path("", include("tickets.urls")),
+    path("", include("users.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

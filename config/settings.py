@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     "theme",
     "django_browser_reload",
     "debug_toolbar",
+    "tickets",
+    "reviews",
+    "users",
 ]
 
 MIDDLEWARE = [

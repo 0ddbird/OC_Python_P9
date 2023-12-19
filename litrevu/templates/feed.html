@@ -1,10 +1,22 @@
 {% extends 'base/base.html' %}
 {% block content %}
+<div class="text-center mb-8">
+    <div class="inline-block mx-auto max-w-md">
+        <div class="flex justify-between space-x-24">
+            <a class="inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="{% url 'create_ticket' %}">Ask for a review</a>
+            <a class="inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500" href="{% url 'create_ticket_and_review' %}">Create a review</a>
+        </div>
+    </div>
+</div>
 {% for post in posts %}
   <div class="my-4">
     {% if post.content_type == 'TICKET' %}
       {% with ticket=post %}
         {% include './components/ticket.html' %}
+      {% endwith %}
+    {% elif post.content_type == 'USER_REVIEW' %}
+      {% with ticket_and_review=post %}
+        {% include './components/user_review.html' %}
       {% endwith %}
     {% elif post.content_type == 'REVIEW' %}
       {% with review=post %}

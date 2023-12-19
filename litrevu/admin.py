@@ -1,5 +1,7 @@
 from django.contrib import admin
-from litrevu.models import Ticket, Review, UserFollows
+from users.models import UserFollows
+from reviews.models import Review
+from tickets.models import Ticket
 from django.db.models.expressions import F
 
 

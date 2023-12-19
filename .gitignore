@@ -1,6 +1,5 @@
 .env
 .idea/
 .project/
-*.sqlite3
 __pycache__/
 media/*
