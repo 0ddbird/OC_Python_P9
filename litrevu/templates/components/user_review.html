@@ -13,11 +13,11 @@
         <span class="text-sm text-gray-500 italic">"{{ review.ticket_title }}" reviewed by {{ review.review_username }} for {{ review.ticket_username }}</span>
         <p class="text-gray-600 mt-2">{{ review.body }}</p>
         {% if review.is_editable %}
-        <a href="{% url 'update_review' ticket_id=review.ticket_id review_id=review.id %}">Edit</a>
+        <a href="{% url 'update_review' ticket_id=review.ticket_id review_id=review.id %}" class="text-sky-600 hover:text-sky-900">Edit</a>
 
         <form action="{% url 'delete_review' review_id=review.id %}" method="post" style="display: inline;">
             {% csrf_token %}
-            <button type="submit">Delete</button>
+            <button type="submit" class="text-sky-600 hover:text-sky-900">Delete</button>
         </form>
         {% endif %}
 

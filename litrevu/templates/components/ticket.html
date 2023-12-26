@@ -11,6 +11,10 @@
                 <p class="mt-2 text-gray-500">
                     {{ ticket.description }}
                 </p>
+                {% if ticket.is_editable %}
+                <a href="{% url 'update_ticket' ticket_id=ticket.id %}" class="text-sky-600 hover:text-sky-900">Edit</a>
+                {% endif %}
+
 
                 {% if not ticket.has_review %}
                 <div class="mt-4">
@@ -25,7 +29,7 @@
             <img src="{{ ticket.image.url }}" alt="{{ ticket.title }}" class="h-64 md:h-80 w-full object-cover">
         </div>
 
-    </div>
 
+    </div>
 
 </div>

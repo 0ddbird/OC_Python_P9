@@ -4,50 +4,49 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('litrevu', '0001_initial'),
+        ("litrevu", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='ticket',
-            name='user',
+            model_name="ticket",
+            name="user",
         ),
         migrations.AlterUniqueTogether(
-            name='userblocked',
+            name="userblocked",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='userblocked',
-            name='blocked_user',
+            model_name="userblocked",
+            name="blocked_user",
         ),
         migrations.RemoveField(
-            model_name='userblocked',
-            name='user',
+            model_name="userblocked",
+            name="user",
         ),
         migrations.AlterUniqueTogether(
-            name='userfollows',
+            name="userfollows",
             unique_together=None,
         ),
         migrations.RemoveField(
-            model_name='userfollows',
-            name='followed_user',
+            model_name="userfollows",
+            name="followed_user",
         ),
         migrations.RemoveField(
-            model_name='userfollows',
-            name='user',
+            model_name="userfollows",
+            name="user",
         ),
         migrations.DeleteModel(
-            name='Review',
+            name="Review",
         ),
         migrations.DeleteModel(
-            name='Ticket',
+            name="Ticket",
         ),
         migrations.DeleteModel(
-            name='UserBlocked',
+            name="UserBlocked",
         ),
         migrations.DeleteModel(
-            name='UserFollows',
+            name="UserFollows",
         ),
     ]
