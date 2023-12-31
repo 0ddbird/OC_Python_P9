@@ -32,7 +32,7 @@
             </fieldset>
         </div>
         <button type="submit"
-                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-900 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
             Submit
         </button>
     </form>
@@ -50,7 +50,7 @@
                         <form method="post" action="{% url 'unfollow_view' follow.followed_user.id %}" class="ml-4">
                             {% csrf_token %}
                             <button type="submit"
-                                    class="py-1 px-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg">
+                                    class="py-1 px-3 bg-red-900 hover:bg-red-600 text-white font-bold rounded-lg">
                                 Unfollow
                             </button>
                         </form>

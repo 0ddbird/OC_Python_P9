@@ -33,3 +33,22 @@ Save and exit.
 `python manage.py runserver`
 
 ### 10. Navigate to http://127.0.0.1:8000
+
+## Demo accounts
+
+User 1 login:  
+`Jack`
+
+User 2 login:  
+`Jane`
+
+User 3 login:  
+`Bob`
+
+Users password:
+`5ilAmM6s&*!O6$3OBN&8h@D*P^vdE595$4!7$gz%`
+
+admin login:
+`admin`
+admin password:
+`admin`
